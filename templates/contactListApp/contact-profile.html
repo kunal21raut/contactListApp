@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/651d2edad9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'style-profile.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header class="contact-profile">
+            <a href="{% url 'index' %}">
+                <i class="fas fa-chevron-circle-left back-btn"></i>
+            </a>
+            <div class="contact-profile-info">
+                <h1 class="contact-name">{{contact.full_name | title }}</h1>
+                <p class="relationship">{{contact.relationship | title }}</p>
+            </div>
+        </header>
+
+
+        <section class="contact-info">
+            <div class="info-line">
+                <i class="fas fa-phone icon-gradient"></i>
+                <p class="phone-number">{{contact.phone_number}} </p>
+            </div>
+            
+            <div class="info-line">
+                <i class="fas fa-envelope icon-gradient"></i>
+                <p class="email">{{contact.email}}</p>
+            </div>
+            <div class="info-line">
+                <i id="location" class="fas fa-map-marker-alt icon-gradient"></i>
+                <p class="address">{{contact.address}}</p>
+            </div>
+        </section>
+
+        <a href="{% url 'editcontact' contact.id %}">
+            <section class="edit-contact">
+                <div class="edit-button">
+                    <i class="fas fa-cog icon-gradient"></i>
+                </div>
+            </section>
+        </a>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/651d2edad9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'style-profile.css' %}">
+    <link rel="stylesheet" href="{% static 'style-add-contact.css' %}">
+    <title>Add Contact</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="contact-profile">
+            <a href="{% url 'index' %}">
+                <i class="fas fa-chevron-circle-left back-btn"></i>
+            </a>
+            <div class="contact-profile-info">
+                <h1 class="contact-name">New Contact</h1>
+                <!-- <p class="relationship">Friend</p> -->
+            </div>
+        </header>
+
+<form action="" method="POST">
+    {% csrf_token %}
+        <section class="contact-info">
+            <div class="info-line">
+                <i class="fas fa-phone icon-gradient"></i>
+                <input class="type" type="phone" name="phonenumber" id="" placeholder="Phone Number" required>
+            </div>
+            <div class="info-line">
+                <i class="fas fa-user icon-gradient"></i>
+                <input class="type" type="text" name="fullname" id="" placeholder="Full Name" required>
+            </div>
+            <div class="info-line">
+                <i class="fas fa-users icon-gradient"></i>
+                <input class="type" type="text" name="relationship" id="" placeholder="Ralationship" required>
+            </div>
+            <div class="info-line">
+                <i class="fas fa-envelope icon-gradient"></i>
+                <input class="type" type="email" name="email" id="" placeholder="E-mail">
+                
+            </div>
+            <div class="info-line">
+                <i id="location" class="fas fa-map-marker-alt icon-gradient"></i>
+                <input class="type" type="text" name="address" id="" placeholder="Address">
+            </div>
+        </section>
+
+        <section class="button-container">
+           
+                <div class="update-contact">
+                    <i class="fas fa-check-circle icon-gradient"></i>
+                    <button type="submit" class="button">Save Contact</button>
+                </div>
+        </section>
+    </form>
+
+        <!-- <section class="button-container">
+            <a href="delete-contact.html">
+                <div class="update-contact">
+                    <i class="fas fa-trash icon-gradient"></i>
+                    <button class="button">Delete Contact</button>
+                </div>
+            </a>
+        </section> -->
+    
+</body>
+
+</html>
